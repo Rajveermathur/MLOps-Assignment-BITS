@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Rajveer%20Mathur/Desktop/MLOps-Assignment-BITS/notebooks/mlruns/631756677983630843/68127240dc4040de8ed2180be283c8b3/artifacts
+end_time: 1753721241167
+entry_point_name: ''
+experiment_id: '631756677983630843'
+lifecycle_stage: active
+run_id: 68127240dc4040de8ed2180be283c8b3
+run_name: LinearRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753721240927
+status: 4
+tags: []
+user_id: Rajveer Mathur
