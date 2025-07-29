@@ -6,7 +6,7 @@ on:
       - main 
 
 jobs:
-  train:
+  continous-training:
     runs-on: ubuntu-latest
 
     steps:
@@ -44,7 +44,7 @@ jobs:
         git diff --cached --quiet || (
           echo "🔁 Changes detected. Committing entire repo..."
           git commit -m "🔁 Training update on $(date +'%Y-%m-%d %H:%M:%S')"
-          git push origin main
+          git push https://mlflow-bot:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         )
       continue-on-error: true  # Skip failure if there's nothing new to commit
 
