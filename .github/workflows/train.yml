@@ -39,12 +39,13 @@ jobs:
         echo "Checking if mlruns/ has changes..."
         git config --global user.name "mlflow-bot"
         git config --global user.email "mlflow@example.com"
+        git remote set-url origin https://mlflow-bot:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         
         git add .
         git diff --cached --quiet || (
           echo "🔁 Changes detected. Committing entire repo..."
           git commit -m "🔁 Training update on $(date +'%Y-%m-%d %H:%M:%S')"
-          git push https://mlflow-bot:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+          git push origin main
         )
       continue-on-error: true  # Skip failure if there's nothing new to commit
 
