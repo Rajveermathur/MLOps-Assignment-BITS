@@ -1,15 +1,13 @@
 import mlflow
 import mlflow.sklearn
-from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import root_mean_squared_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
-import numpy as np
 import pandas as pd
 
 # Load California housing dataset
-df = pd.read_csv('../data/cleaned_california_housing.csv')
+df = pd.read_csv('data/cleaned_california_housing.csv')
 X = df.drop('MedHouseVal', axis=1)
 y = df['MedHouseVal']
 
