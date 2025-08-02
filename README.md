@@ -29,3 +29,14 @@ A complete **end-to-end Machine Learning pipeline** built with best practices us
 - Commits updated `mlruns/` and results back to the repo
 
 ---
+
+## Local Run
+### Setup Python
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+- Run app server::`python main.py`
+- Run app server using uvicorn
+
+### Docker
+- `docker build -t fastapi-hello .`
+- `docker run -p 8000:8000 fastapi-hello`
