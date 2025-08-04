@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Rajveer%20Mathur/Desktop/MLOps-Assignment-BITS/notebooks/mlruns/762697401415809895/models/m-f3654d6e35404a72896ffb67e0275558/artifacts
+creation_timestamp: 1754324033799
+experiment_id: '762697401415809895'
+last_updated_timestamp: 1754324043778
+model_id: m-f3654d6e35404a72896ffb67e0275558
+model_type: null
+name: model
+source_run_id: a568de74a11e4c73aa11bd6a4bb67f96
+status: 2
+status_message: null
