@@ -1,0 +1,14 @@
+artifact_uri: file:///home/runner/work/MLOps-Assignment-BITS/MLOps-Assignment-BITS/mlruns/729934524298411406/e9ba3672ff434d749dbc826999533bb0/artifacts
+end_time: 1754420683918
+entry_point_name: ''
+experiment_id: '729934524298411406'
+lifecycle_stage: active
+run_id: e9ba3672ff434d749dbc826999533bb0
+run_name: LinearRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754420681803
+status: 3
+tags: []
+user_id: runner
