@@ -1,31 +1,41 @@
-# 🧠 MLOps-Assignment-BITS
+# California Housing Price Prediction API 🏡
 
-A complete **end-to-end Machine Learning pipeline** built with best practices using:
+This is a Flask-based REST API that serves predictions from a trained model on the California Housing dataset.
 
-- **📦 DVC** for dataset versioning  
-- **📝 MLflow** for experiment tracking and model registry  
-- **🤖 ML Models**: Linear Regression & Decision Tree  
-- **⚙️ GitHub Actions** for CI/CD automation 
+## 🚀 How to Run
 
-## 🚀 Features
+1. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### 🔁 Data Versioning with DVC
+2. Start the server:
+    ```bash
+    python flask_app.py
+    ```
 
-- Tracks raw and processed datasets
-- Enables reproducibility across versions
+3. Test the API:
 
-### 🧠 Model Training & Tracking
+    - Endpoint: `POST /predict`
+    - Sample input:
+      ```json
+      {
+        "MedInc": 8.3252,
+        "HouseAge": 41.0,
+        "AveRooms": 6.9841,
+        "AveBedrms": 1.0238,
+        "Population": 322.0,
+        "AveOccup": 2.5556,
+        "Latitude": 37.88,
+        "Longitude": -122.23
+      }
+      ```
 
-- Trains models on California Housing dataset
-- Logs:
-  - 📊 Parameters
-  - 📈 Metrics (MAE, R²)
-  - 🧠 Model artifacts
-- Registers best model to MLflow
+4. Prediction and input logs are saved to `predictions.json`.
 
-### ⚙️ CI/CD with GitHub Actions
+## 🧠 Dependencies
 
-- Automatically runs `training.py` on each `push` to `main`
-- Commits updated `mlruns/` and results back to the repo
-
----
+- Flask
+- scikit-learn
+- pydantic
+- pandas

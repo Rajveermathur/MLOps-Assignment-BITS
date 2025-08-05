@@ -1,0 +1,62 @@
+[
+  {
+    "input": {
+      "MedInc": 8.3252,
+      "HouseAge": 20.0,
+      "AveRooms": 4.9841,
+      "AveBedrms": 5.0238,
+      "Population": 322.0,
+      "AveOccup": 4.5556,
+      "Latitude": 30.88,
+      "Longitude": -122.23
+    },
+    "prediction": [
+      5.00001
+    ]
+  },
+  {
+    "input": {
+      "MedInc": 7.3252,
+      "HouseAge": 30.0,
+      "AveRooms": 5.9841,
+      "AveBedrms": 6.0238,
+      "Population": 422.0,
+      "AveOccup": 5.5556,
+      "Latitude": 20.88,
+      "Longitude": -182.23
+    },
+    "prediction": [
+      4.563
+    ]
+  },
+  {
+    "input": {
+      "MedInc": 5.3252,
+      "HouseAge": 10.0,
+      "AveRooms": 5.9841,
+      "AveBedrms": 3.0238,
+      "Population": 622.0,
+      "AveOccup": 7.5556,
+      "Latitude": 30.88,
+      "Longitude": -182.23
+    },
+    "prediction": [
+      2.081
+    ]
+  },
+  {
+    "input": {
+      "MedInc": 3.3252,
+      "HouseAge": 20.0,
+      "AveRooms": 6.9841,
+      "AveBedrms": 4.0238,
+      "Population": 322.0,
+      "AveOccup": 5.5556,
+      "Latitude": 40.88,
+      "Longitude": -122.23
+    },
+    "prediction": [
+      1.469
+    ]
+  }
+]
