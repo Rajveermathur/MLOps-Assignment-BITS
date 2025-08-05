@@ -1,92 +1,66 @@
-import json
 import dash
+import json
 from dash import dcc, html
 import plotly.graph_objs as go
-from collections import deque
-import datetime
+from datetime import datetime
 
-# App setup
+METRICS_FILE = 'logs/metrics.json'
+with open(METRICS_FILE, 'r') as f:
+    metrics = json.load(f)
+
+# Derived metrics
+success_rate = (metrics["successful_requests"] / metrics["total_requests"]) * 100
+failure_rate = (metrics["failed_requests"] / metrics["total_requests"]) * 100
+avg_response_time_ms = round(metrics["average_response_time"] * 1000, 2)  # ms
+last_request_time = datetime.fromisoformat(metrics["last_request_timestamp"]).strftime("%Y-%m-%d %H:%M:%S")
+
+# Initialize Dash app
 app = dash.Dash(__name__)
 app.title = "API Metrics Dashboard"
 
-# Simulated historical data store
-history_length = 20
-timestamps = deque(maxlen=history_length)
-avg_response_times = deque(maxlen=history_length)
+# Layout
+app.layout = html.Div(children=[
+    html.H1("API Metrics Dashboard", style={'textAlign': 'center'}),
+    html.H4(f"Last Request: {last_request_time}", style={'textAlign': 'center', 'color': 'gray'}),
 
-# Load metrics from JSON file
-def load_metrics():
-    with open('metrics.json') as f:
-        return json.load(f)
-
-# App layout
-app.layout = html.Div([
-    html.H1("📊 API Metrics Dashboard"),
-    
-    dcc.Interval(id='interval', interval=5000, n_intervals=0),  # auto-update every 5s
-
-    html.Div(id='stats', style={'display': 'flex', 'justify-content': 'space-around'}),
-
-    html.Br(),
-
+    # KPIs
     html.Div([
-        dcc.Graph(id='bar_chart'),
-        dcc.Graph(id='line_chart')
-    ])
-])
-
-# Update callback
-@app.callback(
-    [dash.Output('stats', 'children'),
-     dash.Output('bar_chart', 'figure'),
-     dash.Output('line_chart', 'figure')],
-    [dash.Input('interval', 'n_intervals')]
-)
-def update_dashboard(n):
-    data = load_metrics()
-
-    # Update historical data
-    ts = data.get('last_request_timestamp', str(datetime.datetime.now()))
-    rt = data.get('average_response_time', 0)
-    timestamps.append(ts)
-    avg_response_times.append(rt)
-
-    # Stat cards
-    stats = [
         html.Div([
             html.H3("Total Requests"),
-            html.P(data['total_requests'], style={'fontSize': 24})
-        ]),
+            html.P(metrics["total_requests"])
+        ], style={'padding': 20, 'border': '1px solid #ccc', 'borderRadius': 10, 'width': '30%'}),
+        
         html.Div([
-            html.H3("Successful Requests"),
-            html.P(data['successful_requests'], style={'fontSize': 24})
-        ]),
+            html.H3("Success Rate"),
+            html.P(f"{success_rate:.2f}%")
+        ], style={'padding': 20, 'border': '1px solid #ccc', 'borderRadius': 10, 'width': '30%'}),
+
         html.Div([
-            html.H3("Failed Requests"),
-            html.P(data['failed_requests'], style={'fontSize': 24})
-        ]),
-        html.Div([
-            html.H3("Avg Response Time (s)"),
-            html.P(f"{rt:.4f}", style={'fontSize': 24})
-        ])
-    ]
+            html.H3("Avg Response Time"),
+            html.P(f"{avg_response_time_ms} ms")
+        ], style={'padding': 20, 'border': '1px solid #ccc', 'borderRadius': 10, 'width': '30%'})
+    ], style={'display': 'flex', 'justifyContent': 'space-around', 'marginBottom': 50}),
 
-    # Bar chart
-    bar_fig = go.Figure(data=[
-        go.Bar(name='Requests', x=['Total', 'Successful', 'Failed'],
-               y=[data['total_requests'], data['successful_requests'], data['failed_requests']])
-    ])
-    bar_fig.update_layout(title="Request Counts", yaxis_title="Count")
+    # Pie Chart
+    dcc.Graph(
+        figure=go.Figure(data=[
+            go.Pie(labels=['Successful', 'Failed'],
+                   values=[metrics['successful_requests'], metrics['failed_requests']],
+                   hole=0.4)
+        ]).update_layout(title="Success vs Failure")
+    ),
 
-    # Line chart for average response time
-    line_fig = go.Figure(data=[
-        go.Scatter(x=list(timestamps), y=list(avg_response_times), mode='lines+markers')
-    ])
-    line_fig.update_layout(title="Average Response Time Over Time",
-                           xaxis_title="Timestamp", yaxis_title="Response Time (s)")
+    # Bar Chart
+    dcc.Graph(
+        figure=go.Figure(data=[
+            go.Bar(x=['Total Requests', 'Successful', 'Failed'],
+                   y=[metrics['total_requests'], metrics['successful_requests'], metrics['failed_requests']],
+                   text=[metrics['total_requests'], metrics['successful_requests'], metrics['failed_requests']],
+                   textposition='auto')
+        ]).update_layout(title="Request Counts", yaxis_title="Count")
+    )
+])
 
-    return stats, bar_fig, line_fig
-
-# Run app
+# Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8050)

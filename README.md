@@ -64,10 +64,3 @@ This is a Flask-based REST API that serves predictions from a trained model on t
       ```
 
 4. Prediction and input logs are saved to `predictions.json`.
-
-## 🧠 Dependencies
-
-- Flask
-- scikit-learn
-- pydantic
-- pandas
