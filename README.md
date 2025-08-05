@@ -1,3 +1,35 @@
+# 🧠 MLOps-Assignment-BITS
+
+A complete **end-to-end Machine Learning pipeline** built with best practices using:
+
+- **📦 DVC** for dataset versioning  
+- **📝 MLflow** for experiment tracking and model registry  
+- **🤖 ML Models**: Linear Regression & Decision Tree  
+- **⚙️ GitHub Actions** for CI/CD automation 
+
+## 🚀 Features
+
+### 🔁 Data Versioning with DVC
+
+- Tracks raw and processed datasets
+- Enables reproducibility across versions
+
+### 🧠 Model Training & Tracking
+
+- Trains models on California Housing dataset
+- Logs:
+  - 📊 Parameters
+  - 📈 Metrics (MAE, R²)
+  - 🧠 Model artifacts
+- Registers best model to MLflow
+
+### ⚙️ CI/CD with GitHub Actions
+
+- Automatically runs `training.py` on each `push` to `main`
+- Commits updated `mlruns/` and results back to the repo
+
+---
+
 # California Housing Price Prediction API 🏡
 
 This is a Flask-based REST API that serves predictions from a trained model on the California Housing dataset.
