@@ -26,10 +26,11 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       # 4️⃣ Build and push the image
-      - name: Build and push Docker image
+      - name: Build and push multi-platform Docker image
         uses: docker/build-push-action@v4
         with:
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: 2023ac05022divyansh/mlops-g15-a1:latest,2023ac05022divyansh/mlops-g15-a1:${{ github.sha }}
 
 
