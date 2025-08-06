@@ -1,1 +1,12 @@
+
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+venv/
  .venv/
+ notebooks/mlruns/
+.idea/

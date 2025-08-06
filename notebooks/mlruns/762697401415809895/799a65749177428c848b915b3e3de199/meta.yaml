@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Rajveer%20Mathur/Desktop/MLOps-Assignment-BITS/notebooks/mlruns/762697401415809895/799a65749177428c848b915b3e3de199/artifacts
+end_time: 1754324086654
+entry_point_name: ''
+experiment_id: '762697401415809895'
+lifecycle_stage: active
+run_id: 799a65749177428c848b915b3e3de199
+run_name: DecisionTree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754324081879
+status: 3
+tags: []
+user_id: Rajveer Mathur

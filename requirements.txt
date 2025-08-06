@@ -5,3 +5,8 @@ pandas==2.2.3
 numpy==2.0.2
 fastapi==0.116.1
 uvicorn==0.35.0
+plotly==6.2.0
+dash==3.2.0
+pydantic==2.11.7
+pydantic_core==2.33.2
+prometheus_client==0.21.1
