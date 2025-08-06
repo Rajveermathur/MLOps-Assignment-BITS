@@ -1,18 +1,19 @@
-# Dockerfile
 FROM python:3.9.6-slim
 
-# Set a working directory
 WORKDIR /app
 
-# Install dependencies early to leverage Docker caching
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the FastAPI app
-COPY main.py .
+# Copy all app code
+COPY . .
 
-# Expose the port FastAPI will run on
-EXPOSE 8000
+# Make the start script executable
+RUN chmod +x run.sh
 
-# Run FastAPI with Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Expose all required ports
+EXPOSE 5000 8000 8050
+
+# Run everything
+CMD ["./run.sh"]
