@@ -64,3 +64,15 @@ This is a Flask-based REST API that serves predictions from a trained model on t
       ```
 
 4. Prediction and input logs are saved to `predictions.json`.
+
+---
+## Local Run
+### Setup Python
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+- Run app server::`python main.py`
+- Run app server using uvicorn
+
+### Docker
+- `docker build -t fastapi-hello .`
+- `docker run -p 8000:8000 fastapi-hello`
