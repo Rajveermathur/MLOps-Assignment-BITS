@@ -29,7 +29,7 @@ app.layout = html.Div(children=[
             html.H3("Total Requests"),
             html.P(metrics["total_requests"])
         ], style={'padding': 20, 'border': '1px solid #ccc', 'borderRadius': 10, 'width': '30%'}),
-        
+
         html.Div([
             html.H3("Success Rate"),
             html.P(f"{success_rate:.2f}%")
@@ -63,4 +63,4 @@ app.layout = html.Div(children=[
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True, port=8050)
+    app.run(debug=True, host="0.0.0.0", port=8050)
