@@ -1,0 +1,14 @@
+artifact_uri: file:///home/runner/work/MLOps-Assignment-BITS/MLOps-Assignment-BITS/mlruns/729934524298411406/7ea66b074eca42a09e2f22f8fb758de8/artifacts
+end_time: 1754546130050
+entry_point_name: ''
+experiment_id: '729934524298411406'
+lifecycle_stage: active
+run_id: 7ea66b074eca42a09e2f22f8fb758de8
+run_name: DecisionTree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754546128074
+status: 3
+tags: []
+user_id: runner
