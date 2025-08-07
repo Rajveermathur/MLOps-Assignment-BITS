@@ -68,14 +68,23 @@ A complete **end-to-end Machine Learning pipeline** built with best practices us
 - `source venv/bin/activate`
 - `pip install -r requirements.txt`
 - Run servers::`./run.sh`
+- Exposed:
+  - PORT `5000` Flask App Server
+  - PORT `5001` MLFlow Dashboard
+  - PORT `8000` Prometheus
+  - PORT `8050` Dashboard
 
-### Docker Run
+### Local Docker Run
+- Build image: `docker build -t <tag-name> .`
+- Verify image pull: `docker images`
+- Run Container: `docker run -p 5000:5000 -p 5001:5001 -p 8000:8000 -p 8050:8050 <tag-name>`
+
+### Remote Docker Run
 - Pull latest image: `docker pull 2023ac05022divyansh/mlops-g15-a1`
 - Verify image pull: `docker images`
-- Run Container: `docker run -p 5000:5000 -p 8000:8000 -p 8050:8050 2023ac05022divyansh/mlops-g15-a1`
+- Run Container: `docker run -p 5000:5000 -p 5001:5001 -p 8000:8000 -p 8050:8050 2023ac05022divyansh/mlops-g15-a1`
 
 Test the APIs:
-- 
 - Endpoint: `[POST] localhost:5000/predict` 
 
 - Sample input:

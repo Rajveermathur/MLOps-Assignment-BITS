@@ -13,7 +13,7 @@ COPY . .
 RUN chmod +x run.sh
 
 # Expose all required ports
-EXPOSE 5000 8000 8050
+EXPOSE 5000 5001 8000 8050
 
 # Run everything
 CMD ["./run.sh"]

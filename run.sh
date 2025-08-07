@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mlflow ui --host 0.0.0.0 --port 5001 &
+
 # Start Flask app
 python scripts/dashboard.py &
 
